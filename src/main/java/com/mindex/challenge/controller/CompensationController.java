@@ -2,6 +2,8 @@ package com.mindex.challenge.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,7 +30,7 @@ public class CompensationController {
 	}
 
 	@PostMapping("/compensation")
-	public Compensation createCompensation(@RequestBody Compensation compensation) {
+	public Compensation createCompensation(@Valid @RequestBody Compensation compensation) {
 		log.debug("Received compensation create request for [{}]",compensation);
 		return compensationService.create(compensation);
 	}
